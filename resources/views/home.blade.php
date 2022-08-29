@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>homepage</h1>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="voyage">
+        <h1>PACCHETTI DI VIAGGIO</h1>
+
+        @foreach ($travels as $travel)
+
+            <h3>LOCALITA': {{ $travel->locality }}</h3>
+            <h4>PER {{ $travel->people }} PERSONE</h4>
+            <h4>Soggiorno dalla durata di: {{ $travel->days }} giorni</h4>
+            <h4>Recensioni: {{ $travel->description }}</h4>
+            <h4>Prezzo per una notte: {{ $travel->price }} €</h4>
+            <br>
+        @endforeach
+    </div>
+@endsection
